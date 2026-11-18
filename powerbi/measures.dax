@@ -1,0 +1,10 @@
+Ticket Count = DISTINCTCOUNT(customer_tickets[ticket_id])
+Open Tickets = CALCULATE([Ticket Count], customer_tickets[status] = "Open")
+Average First Response (Minutes) = AVERAGE(customer_tickets[first_response_minutes])
+Average Resolution (Hours) = AVERAGE(customer_tickets[resolution_hours])
+Average CSAT = AVERAGE(customer_tickets[csat_score])
+High Priority Open = CALCULATE([Ticket Count], customer_tickets[status] = "Open", customer_tickets[priority] = "High")
+
+-- Suggested visuals: cards for all measures; ticket trend by created_date;
+-- average CSAT by issue_type and agent; response time by channel.
+-- Slicers: created_date, channel, issue_type, priority, agent.
